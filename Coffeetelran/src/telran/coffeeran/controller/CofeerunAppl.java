@@ -29,9 +29,9 @@ synchronized boolean addOrder(@RequestBody Coffee order) {
 
 }
 @DeleteMapping(value=CoffeerunApi.REMOVE_ORDER)
-String removeOrder(String emailAddress)
+boolean removeOrder(String emailAddress)
 {
-	return orders.removeOrder(emailAddress)?"order removed":"order doesn't exists";
+	return orders.removeOrder(emailAddress);
 }
 @GetMapping(value=CoffeerunApi.GET_ALL_ORDERS)
 Map<String,Coffee> getAllOrders(){
