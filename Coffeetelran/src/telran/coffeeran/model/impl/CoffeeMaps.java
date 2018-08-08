@@ -17,7 +17,7 @@ HashMap<String,Coffee> orders=new HashMap<>();
 
 	@Override
 	synchronized public Map<String,Coffee> getAllOrders() {
-		return orders;
+		return new HashMap<String,Coffee>(orders);
 	}
 
 	@Override

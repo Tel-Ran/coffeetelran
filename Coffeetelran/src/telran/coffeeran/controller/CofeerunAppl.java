@@ -24,9 +24,9 @@ public class CofeerunAppl {
 ICoffeeRun orders;
 
 @PostMapping(value=CoffeerunApi.ADD_ORDER)
-String addOrder(@RequestBody Coffee order) {
-	String res=orders.addOrder(order)?"order added":"order already exists";
-	return res;
+synchronized boolean addOrder(@RequestBody Coffee order) {
+	return orders.addOrder(order);
+
 }
 @DeleteMapping(value=CoffeerunApi.REMOVE_ORDER)
 String removeOrder(String emailAddress)
