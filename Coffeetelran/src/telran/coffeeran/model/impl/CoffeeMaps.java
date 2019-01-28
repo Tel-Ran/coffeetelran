@@ -22,7 +22,7 @@ HashMap<String,Coffee> orders=new HashMap<>();
 
 	@Override
 	synchronized public boolean addOrder(Coffee order) {
-		boolean res=orders.putIfAbsent(order.emailAddress, order)==null;
+		boolean res=orders.putIfAbsent(order.email, order)==null;
 		return res;
 	
 	}
