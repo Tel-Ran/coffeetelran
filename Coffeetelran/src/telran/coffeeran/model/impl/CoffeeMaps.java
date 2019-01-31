@@ -1,6 +1,6 @@
 package telran.coffeeran.model.impl;
 
-import java.util.HashMap;
+import java.util.*;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import telran.coffeeran.dto.Coffee;
 import telran.coffeeran.model.interfaces.ICoffeeRun;
 @Service
 public class CoffeeMaps implements ICoffeeRun {
-HashMap<String,Coffee> orders=new HashMap<>();
+Map<String,Coffee> orders=new LinkedHashMap<>();
 	@Override
 	synchronized public Coffee getOrder(String emailAddress) {
 		return orders.get(emailAddress);
@@ -17,7 +17,7 @@ HashMap<String,Coffee> orders=new HashMap<>();
 
 	@Override
 	synchronized public Map<String,Coffee> getAllOrders() {
-		return new HashMap<String,Coffee>(orders);
+		return new LinkedHashMap<String,Coffee>(orders);
 	}
 
 	@Override
